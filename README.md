@@ -1,6 +1,6 @@
 # 🌸 My notes App
 
-My first simple web-app that I built to practice Flask and databases
+My first simple web-app that I built to practice Flask and databases.
 You can create, edit and delete notes and pick a color for each one!
 
 ## What it does
