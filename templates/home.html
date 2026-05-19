@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Notes</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav>
+            <h1>My Notes</h1>
+            <button onclick="document.getElementById('add-form').classList.toggle('hidden')">
+                + New Note
+            </button>
+        </nav>
+
+        <div class="notes-grid">
+
+            <div id="add-form" class="hidden">
+                <form method="POST" action="/add">
+                    <div class="color-picker">
+                        <input type="radio" name="color" value="#EFCE7B" id="c1" checked>
+                        <label for="c1" style="background:#EFCE7B"></label>
+                        <input type="radio" name="color" value="#F8CABA" id="c2">
+                        <label for="c2" style="background:#F8CABA"></label>
+                        <input type="radio" name="color" value="#CBD183" id="c3">
+                        <label for="c3" style="background:#CBD183"></label>
+                        <input type="radio" name="color" value="#A8C8E0" id="c4">
+                        <label for="c4" style="background:#A8C8E0"></label>
+                        <input type="radio" name="color" value="#D4B8E0" id="c5">
+                        <label for="c5" style="background:#D4B8E0"></label>
+                        <input type="radio" name="color" value="#F0A8B8" id="c6">
+                        <label for="c6" style="background:#F0A8B8"></label>
+                    </div>
+                    <input type="text" name="title" placeholder="Title">
+                    <textarea name="content" placeholder="Write something..."></textarea>
+                    <div class="form-footer">
+                        <button type="button" onclick="document.getElementById('add-form').classList.add('hidden')">Cancel</button>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+
+            {% for note in notes %}
+            <div class="note-card" style="background-color: {{ note.color }} !important;">
+                <div class="card-body">
+                    <p class="note-title">{{ note.title }}</p>
+                    <p class="note-content">{{ note.content }}</p>
+                </div>
+                <div class="card-footer">
+                    <small>{{ note.created_at.strftime('%B %d, %Y') }}</small>
+                    <div class="card-icons">
+                        <a href="/edit/{{ note.id }}" class="icon-btn">
+                            <img src="{{ url_for('static', filename='editicon.svg') }}" width="16" height="16">
+                        </a>
+                        <a href="/delete/{{ note.id }}" class="icon-btn">
+                            <img src="{{ url_for('static', filename='deleteicon.svg') }}" width="16" height="16">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </body>
+</html>

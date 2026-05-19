@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FAF7F2;
+    font-family: 'Open Sans';
+    min-height: 100vh;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #FAF7F2;
+    border-bottom: 2px solid #e8e0d5;
+}
+
+nav h1 {
+    font-size: 2rem;
+    color: #2B2B23;
+}
+
+nav button {
+    background-color: #b83959;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Open Sans';
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav-back {
+    color: #b83959;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* GRID */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    gap: 24px;
+    padding: 40px;
+    justify-content: center;
+}
+
+/* NOTE CARD */
+.note-card {
+    border-radius: 8px;
+    min-height: 240px;
+    padding: 16px 16px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-content {
+    font-size: 16px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-body {
+    overflow: hidden;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(0,0,0,0.45);
+}
+
+.card-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* ADD FORM */
+.hidden {
+    display: none !important;
+}
+
+#add-form {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 240px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#add-form form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 8px;
+}
+
+#add-form input,
+#add-form textarea {
+    border: none;
+    padding: 6px 0;
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+#add-form input {
+    font-weight: 700;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#add-form textarea {
+    flex: 1;
+    resize: none;
+}
+
+#add-form .form-footer button[type="button"] {
+    background: none;
+    border: none;
+    color: #b83959;
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#add-form .form-footer button[type="submit"] {
+    background-color: #b83959;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* COLOR PICKER */
+.color-picker {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.color-picker input[type="radio"] {
+    display: none;
+}
+
+.color-picker label {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-picker input[type="radio"]:checked + label {
+    border: 2px solid #2B2B23;
+}
+
+/* EDIT PAGE */
+.edit-container {
+    width: 464px;
+    min-height: 464px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 2px solid #e8e0d5;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-container form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.edit-container input[type="text"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Open Sans';
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.edit-container textarea {
+    width: 100%;
+    flex: 1;
+    border: none;
+    padding: 8px 0;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    outline: none;
+    resize: none;
+}
+
+.edit-container button[type="submit"] {
+    background-color: #b83959;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    color: #b83959;
+    text-decoration: none;
+    padding: 10px 20px;
+}

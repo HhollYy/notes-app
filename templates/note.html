@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Note</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav>
+            <h1>My Notes</h1>
+            <a href="/" class="nav-back">← Back</a>
+        </nav>
+
+        <div class="edit-container">
+            <form method="POST" action="/edit/{{ note.id }}">
+                <div class="color-picker">
+                    <input type="radio" name="color" value="#EFCE7B" id="c1" {% if note.color == '#EFCE7B' %}checked{% endif %}>
+                    <label for="c1" style="background:#EFCE7B"></label>
+                    <input type="radio" name="color" value="#F8CABA" id="c2" {% if note.color == '#F8CABA' %}checked{% endif %}>
+                    <label for="c2" style="background:#F8CABA"></label>
+                    <input type="radio" name="color" value="#CBD183" id="c3" {% if note.color == '#CBD183' %}checked{% endif %}>
+                    <label for="c3" style="background:#CBD183"></label>
+                    <input type="radio" name="color" value="#A8C8E0" id="c4" {% if note.color == '#A8C8E0' %}checked{% endif %}>
+                    <label for="c4" style="background:#A8C8E0"></label>
+                    <input type="radio" name="color" value="#D4B8E0" id="c5" {% if note.color == '#D4B8E0' %}checked{% endif %}>
+                    <label for="c5" style="background:#D4B8E0"></label>
+                    <input type="radio" name="color" value="#F0A8B8" id="c6" {% if note.color == '#F0A8B8' %}checked{% endif %}>
+                    <label for="c6" style="background:#F0A8B8"></label>
+                </div>
+                <input type="text" name="title" value="{{ note.title }}">
+                <textarea name="content">{{ note.content }}</textarea>
+                <div class="form-footer">
+                    <a href="/" class="cancel-btn">Cancel</a>
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
